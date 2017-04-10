@@ -1,0 +1,11 @@
+<ul class="pure-menu-list">
+{% if urls|length > 0 %}
+  {% for url in urls: %}
+    <li class="pure-menu-item">
+      {{ url[0]}} <a href="{{ url[2] }}" title="{{ url[1] }}">{{ url[2] }}</a>&nbsp;&mdash;&nbsp;<a href="{{url_for('remove_url', urlid=url[0])}}">X</a>
+    </li>
+  {% endfor %}
+{% else %}
+  no ulrs yet
+{% endif %}
+</ul>

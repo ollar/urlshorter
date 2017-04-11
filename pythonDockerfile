@@ -1,0 +1,8 @@
+FROM python:latest
+
+ADD ./requirments.txt /back/requirments.txt
+WORKDIR /back
+RUN pip install -r requirments.txt
+
+#CMD python app.py
+CMD GUNICORN_CMD_ARGS="--bind=0.0.0.0 --workers=1" gunicorn gucorn:app

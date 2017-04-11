@@ -10,4 +10,4 @@ server:
   ports:
     - "8979:8000"
 
-  mem_limit: 16m
+  mem_limit: 32m

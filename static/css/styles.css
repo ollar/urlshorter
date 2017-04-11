@@ -1,0 +1,59 @@
+body {
+  font-family: Georgia serif;
+}
+
+.center {
+  margin: 20px auto;
+  max-width: 500px;
+}
+
+form{
+  margin: 20px 0;
+}
+
+.urls-list {
+  counter-reset: section;
+}
+
+.urls-list li:before{
+  counter-increment: section;
+  content: counters(section, ".") ". ";
+  color: #999;
+  font-size: 0.9;
+  margin-right: 10px;
+}
+
+.pure-menu-item {
+  padding: 10px 0;
+}
+
+.link {
+  font-size: 1.5em;
+  color: #000;
+  margin-right: 20px;
+}
+
+.cross {
+  font-family: monospace;
+  text-decoration: none;
+  color: red;
+}
+
+.flashes{
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+.flashes li{
+  list-style-type: none;
+  list-style: none;
+}
+
+.flashes li.message {
+  color: #20b420;
+}
+
+.flashes li.error {
+  color: #b42020;
+}

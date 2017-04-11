@@ -26,6 +26,8 @@
         <meta name="msapplication-TileColor" content="#222222">
 
         <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
     </head>
     <body>
       {% with messages = get_flashed_messages(with_categories=true) %}
@@ -38,8 +40,10 @@
         {% endif %}
       {% endwith %}
 
-      {% include "url_form.html" %}
-      {% include "url_list.html" %}
-      {% include "url_form.html" %}
+      <div class="center">
+        {% include "url_form.html" %}
+        {% include "url_list.html" %}
+        {% include "url_form.html" %}
+      </div>
     </body>
 </html>

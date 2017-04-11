@@ -9,7 +9,7 @@ app.secret_key = b'<A;\xad\xa2\x0e\xac\x0eY\x80'
 
 @app.before_request
 def connect_db():
-    g.sqlite_db = sqlite3.connect('example.db')
+    g.sqlite_db = sqlite3.connect('urls.db')
     g.db_cursor = g.sqlite_db.cursor()
 
 
@@ -57,11 +57,9 @@ def main():
         return redirect(url_for('main'))
 
 
-@app.route('/remove_url', methods=['GET'])
-def remove_url():
-    g.db_cursor.execute("delete from urls where id=?",
-                        (request.args.get('urlid'),)
-                        )
+@app.route('/remove_url/<int:urlid>', methods=['GET'])
+def remove_url(urlid):
+    g.db_cursor.execute("delete from urls where id=?", (urlid,))
 
     g.sqlite_db.commit()
     flash('Url removed successfully')
@@ -79,14 +77,12 @@ def go_to_url(alias):
         url = entry[1]
         redirect_url = ''
 
-        try:
-            url.index('http://')
-            url.index('https://')
+        if 'http://' in url or 'https://' in url:
             redirect_url = url
-        except ValueError:
-            redirect_url = 'http://' + url
+        else:
+            redirect_url = "http://" + url
 
-        return redirect(redirect_url)
+        return redirect(redirect_url, code=302)
 
     else:
         flash('No such alias, sorry', 'error')
@@ -94,7 +90,7 @@ def go_to_url(alias):
 
 
 if __name__ == '__main__':
-    conn = sqlite3.connect('example.db')
+    conn = sqlite3.connect('urls.db')
     c = conn.cursor()
 
     c.execute('''CREATE TABLE if not exists urls

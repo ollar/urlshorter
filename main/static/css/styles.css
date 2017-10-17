@@ -5,6 +5,7 @@ body {
 .center {
   margin: 20px auto;
   max-width: 500px;
+  padding: 0 1em;
 }
 
 form{
@@ -21,22 +22,47 @@ form{
   color: #999;
   font-size: 0.9;
   margin-right: 10px;
+  align-self: flex-end;
 }
 
 .pure-menu-item {
   padding: 10px 0;
+  display: flex;
 }
 
 .link {
   font-size: 1.5em;
   color: #000;
-  margin-right: 20px;
+  margin-right: auto;
+}
+
+.remove-url {
+  margin: 0;
+}
+
+.add-url-form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.add-url-form input {
+  margin: 0 5px;
+}
+
+.add-url-form input:first-child {
+  margin-left: 0;
+}
+
+.add-url-form button{
+  margin-left: auto;
 }
 
 .cross {
   font-family: monospace;
   text-decoration: none;
   color: red;
+  border: none;
+  background-color: transparent;
 }
 
 .flashes{

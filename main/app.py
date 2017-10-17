@@ -57,8 +57,10 @@ def main():
         return redirect(url_for("main"))
 
 
-@app.route("/remove_url/<int:urlid>", methods=["GET"])
-def remove_url(urlid):
+@app.route("/remove_url", methods=["POST"])
+def remove_url():
+    urlid = request.form.get('id')
+
     g.db_cursor.execute("delete from urls where id=?", (urlid,))
 
     g.sqlite_db.commit()

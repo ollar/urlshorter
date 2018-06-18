@@ -1,85 +1,110 @@
 body {
-  font-family: Georgia serif;
+    font-family: Georgia serif;
 }
 
 .center {
-  margin: 20px auto;
-  max-width: 500px;
-  padding: 0 1em;
+    margin: 20px auto;
+    max-width: 500px;
+    padding: 0 1em;
 }
 
-form{
-  margin: 20px 0;
+form {
+    margin: 20px 0;
 }
 
 .urls-list {
-  counter-reset: section;
+    counter-reset: section;
+    padding: 0 0 0 10px;
 }
 
-.urls-list li:before{
-  counter-increment: section;
-  content: counters(section, ".") ". ";
-  color: #999;
-  font-size: 0.9;
-  margin-right: 10px;
-  align-self: flex-end;
+.urls-list li:before {
+    counter-increment: section;
+    content: counters(section, '.') '. ';
+    color: #999;
+    font-size: 0.9em;
+    margin-right: 10px;
 }
 
 .pure-menu-item {
-  padding: 10px 0;
-  display: flex;
+    padding: 10px 0;
+    display: flex;
+    align-items: baseline;
 }
 
 .link {
-  font-size: 1.5em;
-  color: #000;
-  margin-right: auto;
+    font-size: 1.5em;
+    color: #000;
+    margin-right: auto;
+    flex-shrink: 1;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .remove-url {
-  margin: 0;
+    margin: 0;
 }
 
 .add-url-form {
-  display: flex;
-  flex-wrap: wrap;
+    display: block;
+}
+
+button {
+    background: deepskyblue;
+    border: none;
+    color: white;
+    padding: 1em 2em;
+    border-radius: 3px;
 }
 
 .add-url-form input {
-  margin: 0 5px;
+    display: block;
+    margin: 0.5em 0;
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.add-url-form input:first-child {
-  margin-left: 0;
+.add-url-form button {
+    margin-left: auto;
 }
 
-.add-url-form button{
-  margin-left: auto;
+@media screen and (min-width: 18em) {
+    .add-url-form {
+        display: flex;
+        align-items: center;
+    }
+
+    .add-url-form input {
+        margin: 0.5em;
+        flex-basis: 38%;
+    }
 }
 
 .cross {
-  font-family: monospace;
-  text-decoration: none;
-  color: red;
-  border: none;
-  background-color: transparent;
+    font-family: monospace;
+    text-decoration: none;
+    color: red;
+    border: none;
+    background-color: transparent;
 }
 
-.flashes{
-  margin: 0;
-  padding: 20px;
-  text-align: center;
+.flashes {
+    margin: 0;
+    padding: 20px;
+    text-align: center;
 }
 
-.flashes li{
-  list-style-type: none;
-  list-style: none;
+.flashes li {
+    list-style-type: none;
+    list-style: none;
 }
 
 .flashes li.message {
-  color: #20b420;
+    color: #20b420;
 }
 
 .flashes li.error {
-  color: #b42020;
+    color: #b42020;
 }
